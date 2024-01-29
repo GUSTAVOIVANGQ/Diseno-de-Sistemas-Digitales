@@ -1,0 +1,17 @@
+library ieee;
+use ieee.std_logic_1164.all;
+entity MORSE is
+port(a: in std_logic;
+	s1: out std_logic);
+end MORSE;
+architecture LAMPARA of MORSE is
+begin
+process (a)
+begin
+	if (a = '1') then
+	s1 <= '1';
+	else
+	s1 <= '0';
+end if;
+end process;
+end LAMPARA;

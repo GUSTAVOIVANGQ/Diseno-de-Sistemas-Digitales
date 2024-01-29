@@ -1,0 +1,19 @@
+--La funcion para este problema es c = ab + Ab, donde a es el interruptor inferior,
+--b es el interruptor superior y c es el foco.
+
+library ieee;
+use ieee.std_logic_1164.all;
+entity ESCALERA is
+port(a,b: in std_logic;
+	c: out std_logic);
+end ESCALERA;
+
+use work.compuerta.all;
+architecture APAGADOR of ESCALERA is
+signal x: bit_vector (0 to 2);
+begin
+U0: and2 port map (a, b, x(0));
+U1: not1 port map (a, x(1));
+U2: and2 port map (x(1), b, x(2));
+U3: or2 port map (x(0), x(2), c);
+end APAGADOR;

@@ -1,0 +1,17 @@
+--robot de planta, para saber si una tarima esta llena cuenta con cuatro sensores,
+--cada uno apunta a sendas cajas, si hay una caja marca 1 logico; si falta marca 0 logico,
+--si falta una caja el robot no se puede ir, cuando estan las cuatro cajas el robot se 
+--lleva la tarima.
+
+library ieee;
+use ieee.std_logic_1164.all;
+entity SENSORES is
+port(a,b,c,d: in std_logic;
+	z: out std_logic);
+end SENSORES;
+
+architecture ROBOT of SENSORES is
+begin
+z <= '1' when (a = '1' and b = '1' and c = '1' and d = '1') else
+	'0';
+end ROBOT;

@@ -1,0 +1,22 @@
+library ieee;
+use ieee.std_logic_1164.all;
+entity MOTOR is
+port(a,b: in std_logic;
+	s1,s2: out std_logic);
+end MOTOR;
+architecture VENTILADOR of MOTOR is
+begin
+process (a,b)
+begin
+	if (a = '0' and b = '0') then
+	s1 <= '0' and s2 <='0';
+	elsif (a = '0' and b = '1') then
+	s1 <= '0' and s2 <='1';
+	elsif (a = '1' and b = '0') then
+	s1 <= '1' and s2 <='0';
+	else
+	s1 <= '0' and s2 <='0';
+	 
+end if;
+end process;
+end VENTILADOR;

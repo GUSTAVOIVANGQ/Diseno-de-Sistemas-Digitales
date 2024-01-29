@@ -1,0 +1,15 @@
+--caja de seguridad cuya apertura requiere la presion simultanea de tres de cuatro botones
+--(a,b,c,d). los botones que se deben oprimir son: a,c y d.
+
+library ieee;
+use ieee.std_logic_1164.all;
+entity BOTONES is
+port(a,b,c,d: in std_logic;
+	z: out std_logic);
+end BOTONES;
+
+architecture CAJA_SEGURIDAD of BOTONES is
+begin
+z <= '1' when (a = '1' and b = '0' and c = '1' and d = '1') else
+	'0';
+end CAJA_SEGURIDAD;

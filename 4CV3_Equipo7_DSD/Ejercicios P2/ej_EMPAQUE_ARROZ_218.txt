@@ -1,0 +1,25 @@
+--El panel muestra contenido de dos silos (a,b) que tiene la fabrica para guardar el arroz,
+--un sensor muestra que tan llenos estan, cuando se encuentran al 100% de su capacidad, envia
+--1 logico y cuando tienen 25% o menos envia 0 logico, si en uno de los silos disminuye el
+--contenido a 25% o menos, se prende una luz "c", si los dos sobrepasan ese limite se 
+--enciende otra luz "d" y suena una alarma "e".
+
+library ieee;
+use ieee.std_logic_1164.all;
+entity CONTENIDO is
+port(a,b: in std_logic;
+	c,d,e,f: out std_logic);
+end CONTENIDO;
+
+architecture PANEL of CONTENIDO is
+begin
+f <= '1' when (a = '1' and b = '1') else
+'0';
+c <= '1' when (a = '1' and b = '0') elsif
+c <= '1' when (a = '0' and b = '1') else
+'0';
+d <= '1' when (a = '0' and b = '0') else
+'0';
+e <= '1' when (a = '0' and b = '0') else
+'0';
+end PANEL;

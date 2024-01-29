@@ -1,0 +1,19 @@
+--motor que se prende con la siguiente ecuacion y = aB + cB + ac.
+
+library ieee;
+use ieee.std_logic_1164.all;
+entity MOTOR is
+port(a,b,c: in std_logic;
+	y: out std_logic);
+end MOTOR;
+
+use work.compuerta.all;
+architecture ESTRUCTURAL of MOTOR is
+signal x: bit_vector (0 to 3);
+begin
+U0: not1 port map (b, x(0));
+U1: and2 port map (a, x(0), x(1));
+U2: and2 port map (c, x(0), x(2));
+U3: and2 port map (a, c, x(3));
+U4: or3 port map (x(1) + x(2) + x(3), y);
+end APAGADOR;
